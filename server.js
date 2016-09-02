@@ -9,7 +9,7 @@ var server = net.createServer(function(conn) {
 
 var HOST = '127.0.0.1';
 var PORT = '9001'
-var FILEPATH = 'C://mlkies/kostas.js';
+var FILEPATH = __dirname + '/received.txt';
 
 server.listen(PORT, HOST, function() {
     //listening
@@ -17,11 +17,8 @@ server.listen(PORT, HOST, function() {
 
     server.on('connection', function(conn) {
         console.log('connection made...\n')
-        conn.on('data', function(data) {
-        	var fileStream = fs.createWriteStream(FILEPATH);
-        	conn.pipe(fileStream);
-            console.log('data received');
-            console.log('data is: \n' + data);
-        });
+    	var fileStream = fs.createWriteStream(FILEPATH);
+    	conn.pipe(fileStream);
+        console.log("File saved!");
     })
 });
