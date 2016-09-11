@@ -7,9 +7,6 @@
     "promise": "^7.1.1",
     "server-manager": "git+https://github.com/nikatlas/server-manager.git"
   },
-  "bin":{
-    "sendfile" : "./index.js"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
