@@ -1,30 +1,19 @@
 var net = require('net');
 var fs = require('fs');
 
-var PORT = 9001;
-var HOST = '127.0.0.1';
-var FILEPATH = __dirname + '/test.txt';
+var sm = require('./node_modules/server-manager');
 
-var client = new net.Socket()
-//connect to the server
-client.connect(PORT,HOST,function() {
-    'Client Connected to server'
-    //send a file to the server
-    var fileStream = fs.createReadStream(FILEPATH);
-    console.log("ReadStream on file: " + FILEPATH)
-    fileStream.on('error', function(err){
-        console.log(err);
-    })
+var PORT = process.argv[3];
+var HOST = process.argv[2];
+var FILEPATH = process.argv[4];
+var temp = FILEPATH.split("\\");
+var filename = temp[temp.length-1];
 
-    fileStream.on('open',function() {
-        fileStream.pipe(client);
-    });
-
-});
-//handle closed
-client.on('close', function() {
-    console.log('server closed connection')
-});
-client.on('error', function(err) {
-    console.log(err);
+sm = sm.TCP;
+sm.createClient("Test", PORT, HOST)
+.then(function (r) {
+  r._socket.write(filename,function(){
+		r.sendFile(FILEPATH);
+  });
+  
 });

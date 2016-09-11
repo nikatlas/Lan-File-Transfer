@@ -1,0 +1,25 @@
+{
+  "name": "send-file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "promise": "^7.1.1",
+    "server-manager": "git+https://github.com/nikatlas/server-manager.git"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimoTheo/Lan-File-Transfer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DimoTheo/Lan-File-Transfer/issues"
+  },
+  "homepage": "https://github.com/DimoTheo/Lan-File-Transfer#readme"
+}
