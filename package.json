@@ -8,7 +8,7 @@
     "server-manager": "git+https://github.com/nikatlas/server-manager.git"
   },
   "bin":{
-    "lansendfile" : "index.js"
+    "send-file" : "index.js"
   },
   "devDependencies": {},
   "scripts": {
